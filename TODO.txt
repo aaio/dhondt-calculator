@@ -1,0 +1,4 @@
+1. streamline CSS - use SCSS and extend Bootstrap classes
+2. data saving
+3. support for minority seats
+
