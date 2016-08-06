@@ -1,0 +1,23 @@
+﻿{
+  "name": "dhondt-calculator",
+  "version": "3.0.0-alpha1",
+  "description": "Calculates election results using the Dhond't method.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaio/dhondt-calculator.git"
+  },
+  "author": "Dominik Janković <aaio@outlook.com>",
+  "bugs": {
+    "url": "https://github.com/aaio/dhondt-calculator/issues"
+  },
+  "homepage": "https://github.com/aaio/dhondt-calculator#readme",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.6.3",
+    "jquery": "^3.1.0"
+  }
+}
