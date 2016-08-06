@@ -1,3 +1,4 @@
-﻿/.vs
+﻿# This comment courtesy of Visual Studio ignoring the first line in .gitignore.
+/.vs
 /node_modules
 /dhondt-calculator.sln
