@@ -1,0 +1,16 @@
+﻿<!-- threshold -->
+<div class="col-xs-6 col-sm-3 col-md-2 pull-right">
+    <label for="treshold">Izborni prag</label>
+    <div class="input-group">
+        <input id="treshold" class="form-control" ng-model="tresholdValue" ng-change="calculate()" type="number" ng-init="tresholdValue=5">
+        <span class="input-group-addon">%</span>
+    </div>
+</div>
+<!-- / treshold -->
+
+<!-- number of seats -->
+<div class="col-xs-6 col-sm-3 col-md-2 pull-right">
+    <label for="seats">Broj mjesta</label>
+    <input id="seats" class="form-control" ng-model="seatsToAssign" ng-change="calculate()" type="number" ng-init="seatsToAssign=21">
+</div>
+<!-- /number of seats -->

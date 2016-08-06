@@ -30,126 +30,25 @@
     <!-- container -->
     <div class="container panel panel-default">
 
+        <!-- header -->
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-8">
                 <h1 class="title">Dhond'tov kalkulator<span class="red">&sup2;</span></h1>
             </div>
-            <!-- izborni prag -->
-            <div class="col-xs-6 col-sm-3 col-md-2 pull-right">
-                <label for="treshold">Izborni prag</label>
-                <div class="input-group">
-                    <input id="treshold" class="form-control" ng-model="tresholdValue" ng-change="calculate()" type="number" ng-init="tresholdValue=5">
-                    <span class="input-group-addon">%</span>
-                </div>
-            </div>
-            <!-- / izborni prag -->
 
-            <!-- broj mjesta -->
-            <div class="col-xs-6 col-sm-3 col-md-2 pull-right">
-                <label for="seats">Broj mjesta</label>
-                <input id="seats" class="form-control" ng-model="seatsToAssign" ng-change="calculate()" type="number" ng-init="seatsToAssign=21">
-            </div>
-            <!-- / broj mjesta -->
+            <election-options></election-options>
         </div>
+        <!-- /header -->
 
+        <party-entry></party-entry>
 
-        <!-- unos stranke -->
-        <div class="row entry-container">
-            <form ng-submit="add()">
-                <div class="form-group">
-                    <label for="new-party">Unos stranke i broja glasova</label>
-                    <div class="input-group">
-                        <input id="new-party" ng-keyup="suggest()" class="form-control" ng-model="newParty" autocomplete="off" autocorrect="off" autofocus="true" type="text" placeholder='npr. "SDP 4156" (bez navodnika)' pattern=".+\s\d+" required="true">
-                        <span class="input-group-btn"><button class="btn btn-default" type="submit">Dodaj</button></span>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <!-- / unos stranke -->
+        <election-results></election-results>
 
-        <!-- unešene stranke -->
-        <div class="row" ng-show="parties.length">
-            <div class="col-xs-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Rezultati</div>
-                    <table class="table rezultati">
-                        <thead>
-                            <tr>
-                                <th width="30%">
-                                    <span class="visible-sm visible-xs"><i class="fa fa-tag"></i></span>
-                                    <span class="hidden-sm hidden-xs">Naziv stranke</span>
-                                </th>
-                                <th width="20%">
-                                    <span class="visible-sm visible-xs"><i class="fa fa-users"></i></span>
-                                    <span class="hidden-sm hidden-xs">Broj glasova</span>
-                                </th>
-                                <th width="20%">
-                                    <span class="visible-sm visible-xs"><i class="fa fa-bar-chart"></i></span>
-                                    <span class="hidden-sm hidden-xs">Postotak glasova</span>
-                                </th>
-                                <th width="20%">
-                                    <span class="visible-sm visible-xs"><i class="fa fa-trophy"></i></span>
-                                    <span class="hidden-sm hidden-xs">Osvojeni mandati</span>
-                                </th>
-                                <th class="text-center" width="10%"><span class="hidden-sm hidden-xs">Brisanje</span></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="party in parties | orderBy:'-seats'" ng-class="{'alert alert-danger': !passedTreshold(party), 'alert alert-warning': party.seats == 0}">
-                                <td><input ng-model="party.name"></td>
-                                <td><input ng-model="party.votes" ng-change="calculate()"></td>
-                                <td>{{ percentage(party.votes) }}</td>
-                                <td>{{ party.seats }}</td>
-                                <td class="text-center"><i ng-click="delete($index)" class="fa fa-trash"></i></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <!-- / unešene stranke -->
-
-        <div class="row" ng-show="parties.length">
-            <div class="col-xs-12 col-md-4 pull-right">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Legenda</div>
-                    <table class="table">
-                        <tr class="visible-sm visible-xs">
-                            <td class="text-center"><i class="fa fa-tag"></i></td>
-                            <td>Naziv stranke</td>
-                        </tr>
-                        <tr class="visible-sm visible-xs">
-                            <td class="text-center"><i class="fa fa-users"></i></td>
-                            <td>Broj glasova</td>
-                        </tr>
-                        <tr class="visible-sm visible-xs">
-                            <td class="text-center"><i class="fa fa-bar-chart"></i></td>
-                            <td>Postotak glasova</td>
-                        </tr>
-                        <tr class="visible-sm visible-xs">
-                            <td class="text-center"><i class="fa fa-trophy"></i></td>
-                            <td>Osvojeni mandati</td>
-                        </tr>
-                        <tr class="visible-sm visible-xs">
-                            <td class="text-center"><i class="fa fa-trash"></i></td>
-                            <td>Brisanje unosa</td>
-                        </tr>
-                        <tr>
-                            <td class="alert alert-danger"></td>
-                            <td>Nisu prešli prag</td>
-                        </tr>
-                        <tr>
-                            <td class="alert alert-warning"></td>
-                            <td>Nisu osvojili mandat</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
+        <colour-legend></colour-legend>
 
         <footer class="row">
             <p class="col-xs-12">
-                Created by <a href="http://dominikjankovic.from.hr">Dominik Janković</a><br>
+                Created by <a href="https://hr.linkedin.com/in/dominikjankovic">Dominik Janković</a><br>
                 Voting ballot box image courtesy of <a href="http://societyofthe3rdsophistic.blogspot.com/" rel="nofollow">The Society of the 3rd Sophistic (S3S)</a>
             </p>
         </footer>

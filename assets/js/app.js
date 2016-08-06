@@ -1,5 +1,33 @@
 var app = angular.module('dhondtCalculatorApp', []);
 
+app.directive('electionOptions', function () {
+    return {
+        templateUrl: 'assets/templates/election-options.html',
+        restrict: 'E'
+    }
+});
+
+app.directive('partyEntry', function () {
+    return {
+        templateUrl: 'assets/templates/party-entry.html',
+        restrict: 'E'
+    }
+});
+
+app.directive('electionResults', function () {
+    return {
+        templateUrl: 'assets/templates/election-results.html',
+        restrict: 'E'
+    }
+});
+
+app.directive('colourLegend', function () {
+    return {
+        templateUrl: 'assets/templates/colour-legend.html',
+        restrict: 'E'
+    }
+});
+
 app.controller('dhondtCtrl', function ($scope) {
     $scope.parties = [];
 

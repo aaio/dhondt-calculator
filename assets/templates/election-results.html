@@ -1,0 +1,39 @@
+﻿<div class="row" ng-show="parties.length">
+    <div class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">Rezultati</div>
+            <table class="table rezultati">
+                <thead>
+                    <tr>
+                        <th width="30%">
+                            <span class="visible-sm visible-xs"><i class="fa fa-tag"></i></span>
+                            <span class="hidden-sm hidden-xs">Naziv stranke</span>
+                        </th>
+                        <th width="20%">
+                            <span class="visible-sm visible-xs"><i class="fa fa-users"></i></span>
+                            <span class="hidden-sm hidden-xs">Broj glasova</span>
+                        </th>
+                        <th width="20%">
+                            <span class="visible-sm visible-xs"><i class="fa fa-bar-chart"></i></span>
+                            <span class="hidden-sm hidden-xs">Postotak glasova</span>
+                        </th>
+                        <th width="20%">
+                            <span class="visible-sm visible-xs"><i class="fa fa-trophy"></i></span>
+                            <span class="hidden-sm hidden-xs">Osvojeni mandati</span>
+                        </th>
+                        <th class="text-center" width="10%"><span class="hidden-sm hidden-xs">Brisanje</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="party in parties | orderBy:'-seats'" ng-class="{'alert alert-danger': !passedTreshold(party), 'alert alert-warning': party.seats == 0}">
+                        <td><input ng-model="party.name"></td>
+                        <td><input ng-model="party.votes" ng-change="calculate()"></td>
+                        <td>{{ percentage(party.votes) }}</td>
+                        <td>{{ party.seats }}</td>
+                        <td class="text-center"><i ng-click="delete($index)" class="fa fa-trash"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

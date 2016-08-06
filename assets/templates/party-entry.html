@@ -1,0 +1,11 @@
+﻿<div class="row entry-container">
+    <form ng-submit="add()">
+        <div class="form-group">
+            <label for="new-party">Unos stranke i broja glasova</label>
+            <div class="input-group">
+                <input id="new-party" ng-keyup="suggest()" class="form-control" ng-model="newParty" autocomplete="off" autocorrect="off" autofocus="true" type="text" placeholder='npr. "SDP 4156" (bez navodnika)' pattern=".+\s\d+" required="true">
+                <span class="input-group-btn"><button class="btn btn-default" type="submit">Dodaj</button></span>
+            </div>
+        </div>
+    </form>
+</div>
